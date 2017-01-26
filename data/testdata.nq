@@ -1,0 +1,5 @@
+hhhh-iiiii <schema:name> "node1" "test" .
+jjjj-kkkkk <schema:name> "node2" "test" .
+hhhh-iiiii <rdf:type> "resource" "test" .
+jjjj-kkkkk <rdf:type> "process" "test" .
+hhhh-iiiii <acedfs:input> jjjj-kkkkk "test" .

@@ -1,0 +1,36 @@
+[applicationLog]
+format="text"
+output="stdout"
+level="debug"
+filename="E:/go-work/logs/server.log"
+# megabytes
+maxsize=50 
+maxbackups=3
+#days
+maxage=10 
+
+[accessLog]
+format="text"
+output="stdout"
+
+
+#[applicationLog]
+#format="text"
+#output="file"
+#level="debug"
+#filename="E:/go-work/logs/server.log"
+# megabytes
+#maxsize=50 
+#maxbackups=3
+#days
+#maxage=10 
+
+#[accessLog]
+#format="text"
+#output="file"
+#filename="E:/go-work/logs/access.log"
+# megabytes
+#maxsize=50
+#maxbackups=3
+#days
+#maxage=10 

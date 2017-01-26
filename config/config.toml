@@ -1,0 +1,6 @@
+[db]
+server = "dbname"
+port = "27017"
+
+[app]
+version = "v0"

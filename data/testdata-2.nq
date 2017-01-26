@@ -1,0 +1,9 @@
+aaaaaa <schema:name> "node1" "test" .
+bbbbbb <schema:name> "node2" "test" .
+cccccc <schema:name> "node3" "test" .
+dddddd <label> "node4" "test" .
+aaaaaa <rdf:type> "resource" "test" .
+bbbbbb <rdf:type> "process" "test" .
+aaaaaa <acedfs:input> bbbbbb "test" .
+bbbbbb <acedfs:output> cccccc "test" .
+eeeeee <acedfs:output> cccccc "nottet" .

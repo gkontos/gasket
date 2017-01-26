@@ -1,0 +1,42 @@
+#nodes
+<123456789> <schema:name> "Shimmering Substance" "test" .
+<123456789> <color> "yellow" "test" .
+<123456789> <rdf:type> "painting" "test" .
+<123456789> <style> "abstract expressionist" "test" .
+<123456789> <creator> "Jackson Pollock" "test" .
+<234567890> <schema:name> "One: Number" "test" .
+<234567890> <color> "yellow and blue" "test" .
+<234567890> <rdf:type> "painting" "test" .
+<234567890> <style> "abstract expressionist" "test" .
+<234567890> <creator> "Jackson Pollock" "test" .
+<345678901> <schema:name> "Jacqueline" "test" .
+<345678901> <color> "blue" "test" .
+<345678901> <rdf:type> "painting" "test" .
+<345678901> <style> "cubist" "test" .
+<345678901> <creator> "Pablo Picasso" "test" .
+
+#relations
+<123456789> <similarto> <234567890> .
+<345678901> <influenced> <234567890> .
+"{\"subject\":\"<123456789>\",\"predicate\":\"<similarto>\",\"object\":\"<234567890>\",\"label\":\"\"}" <hasRelationId> <abcdefghij001> .
+"{\"subject\":\"<345678901>\",\"predicate\":\"<influenced>\",\"object\":\"<234567890>\",\"label\":\"\"}" <hasRelationId> <klmnopqrst001> .
+
+#metadata
+<abcdefghij001> <hasMetaId> <zyx987654321> .
+<abcdefghij001> <hasMetaId> <yx9876543210> .
+<klmnopqrst001> <hasMetaId> <x98765432109> .
+
+<zyx987654321> <source> "interweb.com" "test" .
+<zyx987654321> <popularity> 95010 "test" .
+<zyx987654321> <dateCreated> 1989-10-01 "test" .
+<zyx987654321> <agree> false "test" .
+
+<yx9876543210> <source> "grandma" "test" .
+<yx9876543210> <popularity> 1 "test" .
+<yx9876543210> <dateCreated> 2001-05-01 "test" .
+<yx9876543210> <agree> true "test" .
+
+<x98765432109> <source> "Dr. Art History" "test" .
+<x98765432109> <popularity> 7000 "test" .
+<x98765432109> <dateCreated> 1999-09-01 "test" .
+<x98765432109> <agree> true "test" .
