@@ -1,7 +1,9 @@
 ## Gasket
 Gasket is an example interface for the [Cayley](https://github.com/cayleygraph/cayley) rdf graph store : 
 ---
-Gasket is an example API written in golang featuring : 
+A gasket is a seal which fills the space between two or more mating surfaces, generally to prevent leakage.
+
+The gasket project is an example API written in golang featuring : 
 * 'Normalized' JSON object model mapped to an rdf data store (see schema below for details)
 * Integration of [Cayley](https://github.com/cayleygraph/cayley) as a go library
 * Example of capturing quad meta-data using cayley v0.6
