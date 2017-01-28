@@ -3,11 +3,11 @@ package aceservice
 import (
 	"reflect"
 
-	log "github.com/gkontos/gasket/acelog"
-	"github.com/gkontos/gasket/model"
 	"github.com/cayleygraph/cayley"
 	"github.com/cayleygraph/cayley/graph/iterator"
 	"github.com/cayleygraph/cayley/quad"
+	log "github.com/gkontos/gasket/acelog"
+	"github.com/gkontos/gasket/model"
 	"github.com/pborman/uuid"
 )
 
@@ -79,12 +79,15 @@ func UpdateMetadata(metadata model.Metadata) error {
 // GetMetadataQuadsByID gets the identity quad as well as property quads for a given metadataId
 func GetMetadataQuadsByID(metadataID string) []quad.Quad {
 	var metaQuadList []quad.Quad
-	it := iterator.NewAnd(
+	it, _ := iterator.NewAnd(
 		store,
 		store.QuadIterator(quad.Object, store.ValueOf(quad.IRI(metadataID))),
 		store.QuadIterator(quad.Predicate, store.ValueOf(model.MetaidPredicate)),
-	)
+	).Optimize()
 	defer it.Close()
+
+	it, _ = store.OptimizeIterator(it)
+
 	for it.Next() {
 
 		metaQuad := store.Quad(it.Result())
@@ -109,12 +112,15 @@ func GetMetadataQuadsByID(metadataID string) []quad.Quad {
 func GetMetadataQuadsForRelationID(relationID string) []quad.Quad {
 	var metaQuadList []quad.Quad
 	var metaIdList []quad.Value
-	it := iterator.NewAnd(
+	it, _ := iterator.NewAnd(
 		store,
 		store.QuadIterator(quad.Subject, store.ValueOf(quad.IRI(relationID))),
 		store.QuadIterator(quad.Predicate, store.ValueOf(model.MetaidPredicate)),
-	)
+	).Optimize()
 	defer it.Close()
+
+	it, _ = store.OptimizeIterator(it)
+
 	for it.Next() {
 
 		metaQuad := store.Quad(it.Result())

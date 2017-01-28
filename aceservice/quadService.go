@@ -5,10 +5,10 @@ import (
 
 	"reflect"
 
-	"github.com/gkontos/gasket/model"
 	"github.com/cayleygraph/cayley"
 	"github.com/cayleygraph/cayley/graph"
 	"github.com/cayleygraph/cayley/quad"
+	"github.com/gkontos/gasket/model"
 )
 
 // QuadListToNode will map a list of quads to a Node.  If the quads do not share a node id as subject, an error will be thrown

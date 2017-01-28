@@ -3,11 +3,11 @@ package aceservice
 import (
 	"encoding/json"
 
-	log "github.com/gkontos/gasket/acelog"
-	"github.com/gkontos/gasket/model"
 	"github.com/cayleygraph/cayley"
 	"github.com/cayleygraph/cayley/graph/iterator"
 	"github.com/cayleygraph/cayley/quad"
+	log "github.com/gkontos/gasket/acelog"
+	"github.com/gkontos/gasket/model"
 	"github.com/pborman/uuid"
 )
 
@@ -25,12 +25,15 @@ func GetRelation(ID string) model.Relation {
 	var relationQuad quad.Quad
 	var foundQuad quad.Quad
 
-	it := iterator.NewAnd(
+	it, _ := iterator.NewAnd(
 		store,
 		store.QuadIterator(quad.Object, store.ValueOf(quad.IRI(ID))),
 		store.QuadIterator(quad.Predicate, store.ValueOf(model.RelationidPredicate)),
-	)
+	).Optimize()
 	defer it.Close()
+
+	it, _ = store.OptimizeIterator(it)
+
 	for it.Next() {
 		// we are only expecting a single quad with a specific id, so once found, break
 		foundQuad = store.Quad(it.Result())
@@ -59,12 +62,14 @@ func DeleteByRelationID(ID string) error {
 	var relationQuad quad.Quad
 	var err error
 	// get the relationquad
-	it := iterator.NewAnd(
+	it, _ := iterator.NewAnd(
 		store,
 		store.QuadIterator(quad.Object, store.ValueOf(quad.IRI(ID))),
 		store.QuadIterator(quad.Predicate, store.ValueOf(model.RelationidPredicate)),
-	)
+	).Optimize()
 	defer it.Close()
+
+	it, _ = store.OptimizeIterator(it)
 	for it.Next() {
 
 		relationQuad = store.Quad(it.Result())
